@@ -8,35 +8,38 @@
   <body>
     <h1>QR Code Generator 2025</h1>
 
-    <img src="qrcode.png" alt="QRCode will appear here" />
-
-    <button>Generate QR Code</button>
-
-    <div id="customization">
-      <div>
-        <label for="url">URL:</label>
-        <input type="url" id="url" name="url" required />
+    <img
+      src="{{ url_for('static', filename='images/' + ('qrcode.png' if qr_generated else 'default.png')) }}?{{ timestamp }}"
+      alt="QRCode will appear here"
+    />
+    <form method="POST" action="/">
+      <div id="customization">
+        <div>
+          <label for="url">URL:</label>
+          <input type="url" id="url" name="url" required />
+        </div>
+        <div>
+          <label for="fillColor">Fill Color:</label>
+          <input type="color" id="fillColor" name="fillColor" value="#000000" />
+        </div>
+        <div>
+          <label for="bgColor">Background Color:</label>
+          <input type="color" id="bgColor" name="bgColor" value="#ffffff" />
+        </div>
+        <div>
+          <label for="boxSize">Box Size (1-20):</label>
+          <input
+            type="number"
+            id="boxSize"
+            name="boxSize"
+            min="1"
+            max="20"
+            value="10"
+          />
+        </div>
       </div>
-      <div>
-        <label for="fillColor">Fill Color:</label>
-        <input type="color" id="fillColor" name="fillColor" value="#000000" />
-      </div>
-      <div>
-        <label for="bgColor">Background Color:</label>
-        <input type="color" id="bgColor" name="bgColor" value="#ffffff" />
-      </div>
-      <div>
-        <label for="boxSize">Box Size (1-20):</label>
-        <input
-          type="number"
-          id="boxSize"
-          name="boxSize"
-          min="1"
-          max="20"
-          value="10"
-        />
-      </div>
-    </div>
+      <button type="submit">Generate QR Code</button>
+    </form>
 
     <footer>
       <p>Created by Risheet Lenka</p>
