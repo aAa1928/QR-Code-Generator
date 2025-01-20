@@ -38,4 +38,4 @@ def index():
     return render_template('index.html', timestamp=timestamp, qr_generated=qr_generated)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
