@@ -19,7 +19,7 @@ def generate_qrcode(data: str, *, box_size: int = 10, fill_color: str | tuple = 
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['POST'])
 def index():
     timestamp = int(time())
     qr_generated = False
@@ -38,4 +38,4 @@ def index():
     return render_template('index.html', timestamp=timestamp, qr_generated=qr_generated)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
