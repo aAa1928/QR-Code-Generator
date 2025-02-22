@@ -1,6 +1,6 @@
 # QR Code Generator 2025
 
-A Flask web application for generating customizable QR codes from URLs.
+A Flask full stack web application for generating customizable QR codes from URLs.
 
 Check out the website here: [QR Code Generator](https://qr-code-generator-ccdv.onrender.com/)
 
